@@ -37,3 +37,6 @@ dump_talk_audio.pcm
 dump_avatar_audio.pcm
 exp/
 uv.lock
+
+.roo/
+.github/
