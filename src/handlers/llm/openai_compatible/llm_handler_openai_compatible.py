@@ -20,7 +20,7 @@ from handlers.llm.openai_compatible.chat_history_manager import ChatHistory, His
 class LLMConfig(HandlerBaseConfigModel, BaseModel):
     model_name: str = Field(default="qwen-plus")
     system_prompt: str = Field(default="请你扮演一个 AI 助手，用简短的对话来回答用户的问题，并在对话内容中加入合适的标点符号，不需要加入标点符号相关的内容")
-    api_key: str = Field(default=os.getenv("DASHSCOPE_API_KEY"))
+    api_key: str = Field(default=os.getenv("OPENAI_API_KEY") or os.getenv("DASHSCOPE_API_KEY"))
     api_url: str = Field(default=None)
     enable_video_input: bool = Field(default=False)
 

@@ -4,6 +4,7 @@ default:
   service:
     host: "0.0.0.0"
     port: 8282
+    # 启用HTTPS支持
     cert_file: "ssl_certs/localhost.crt"
     cert_key: "ssl_certs/localhost.key"
   chat_engine:
@@ -15,6 +16,11 @@ default:
         module: client/rtc_client/client_handler_rtc
         concurrent_limit: 1
         connection_ttl: 3600  # 增加到1小时
+        turn_config:
+          turn_provider: "turn_server"
+          urls: ["turn:10.128.0.2:3478", "turns:10.128.0.2:5349"]
+          username: "username"
+          credential: "password"
       SileroVad:
         module: vad/silerovad/vad_handler_silero
         speaking_threshold: 0.5
@@ -30,17 +36,14 @@ default:
         enabled: True
         module: tts/edgetts/tts_handler_edgetts
         voice: "zh-CN-XiaoxiaoNeural"
-      LLM_Bailian:
+      LLM_TuZi:
         enabled: True
         module: llm/openai_compatible/llm_handler_openai_compatible
-        model_name: "qwen-plus"
-        enable_video_input: True # ensure your llm support video input
-        # model_name: "gemini-2.0-flash"
+        model_name: "gpt-4o-mini"  # 或者其他你想使用的模型名称
+        enable_video_input: True
         system_prompt: "请你扮演一个 AI 助手，用简短的两三句对话来回答用户的问题，并在对话内容中加入合适的标点符号，不需要讨论标点符号相关的内容"
-        api_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
-        # api_url: 'http://127.0.0.1:11434/v1' # ollama
-        # api_url: 'https://generativelanguage.googleapis.com/v1beta/openai/'
-        # api_key: "" # default=os.getenv("DASHSCOPE_API_KEY")
+        api_url: "https://api.tu-zi.com/v1"
+        # api_key 将从环境变量 OPENAI_API_KEY 中读取
       LiteAvatar:
         module: avatar/liteavatar/avatar_handler_liteavatar
         avatar_name: 20250408/sample_data

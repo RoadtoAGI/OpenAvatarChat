@@ -26,7 +26,9 @@ class ChatEngine(object):
         if self.inited:
             return
 
-        load_dotenv()
+        # 指定.env文件的绝对路径，确保从项目根目录加载
+        env_path = os.path.join(DirectoryInfo.get_project_dir(), '.env')
+        load_dotenv(env_path)
 
         self.engine_config = engine_config
         if not os.path.isabs(engine_config.model_root):

@@ -32,6 +32,17 @@ class Tts2faceCpuAdapter(BaseAlgoAdapter):
     def init(self, init_option: AvatarInitOption):
         self.change_to_algo_dir()
         data_dir = self._get_avatar_data_dir(init_option.avatar_name)
+        
+        # 如果使用GPU，先清理GPU内存以避免冲突
+        if init_option.use_gpu:
+            try:
+                import torch
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
+                    logger.info("GPU memory cleared before initialization")
+            except Exception as e:
+                logger.warning(f"Failed to clear GPU memory: {e}")
+        
         if InspectUtils.has_init_param(liteAvatar, "use_gpu"):
             self.tts2face = liteAvatar(
                 data_dir=data_dir,
