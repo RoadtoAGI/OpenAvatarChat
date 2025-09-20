@@ -1,65 +1,79 @@
 <h1 style='text-align: center; margin-bottom: 1rem'> Open Avatar Chat </h1>
 
 <p align="center">
-<strong>English | <a href="readme_cn.md">中文</a></strong>
+<strong>中文 | <a href="readme_en.md">English</a></strong>
 </p>
+
 
 <p align="center">
-<strong>A modular interactive digital human conversation implementation that runs full-featured on a single PC.</strong>
+<strong>模块化的交互数字人对话实现。</strong>
 </p>
+
 
 <p align="center" style="display: flex; flex-direction: row; justify-content: center">
- 🤗 <a href="https://huggingface.co/spaces/HumanAIGC-Engineering-Team/open-avatar-chat">Demo</a>&nbsp&nbsp|&nbsp&nbsp<img alt="Static Badge" style="height: 10px;" src="./assets/images/modelscope_logo.png"> <a href="https://www.modelscope.cn/studios/HumanAIGC-Engineering/open-avatar-chat">Demo</a>&nbsp&nbsp|&nbsp&nbsp💬 <a href="https://github.com/HumanAIGC-Engineering/OpenAvatarChat/blob/main/assets/images/community_wechat.png">WeChat</a>
+ 🤗 <a href="https://huggingface.co/spaces/HumanAIGC-Engineering-Team/open-avatar-chat">Demo</a>&nbsp&nbsp|&nbsp&nbsp<img alt="Static Badge" style="height: 10px;" src="./assets/images/modelscope_logo.png"> <a href="https://www.modelscope.cn/studios/HumanAIGC-Engineering/open-avatar-chat">Demo</a>&nbsp&nbsp|&nbsp&nbsp💬 <a href="https://github.com/HumanAIGC-Engineering/OpenAvatarChat/blob/main/assets/images/community_wechat.png">WeChat (微信)</a>
+
 </p>
 
-## 🔥 Core Highlights
-- **Low-latency digital human real-time conversation: The average response delay is about 2.2 seconds.**
-- **Multimodal language model: Supports multimodal language models including text, audio, video, etc.**
-- **Modular design: Uses modular design, allowing flexible component replacement to achieve different function combinations.**
+## 🔥核心亮点
+- **多模态语言模型：支持多模态语言模型，包括文本、音频、视频等。**
+- **模块化设计：使用模块化的设计，可以灵活地替换组件，实现不同功能组合。**
 
-## 📢 News
 
-### Changelog
-- [2025.04.18] ⭐️⭐️⭐️ Version 0.3.0 Released:
-  - 🎉🎉🎉 Congratulations to the [LAM](https://github.com/aigc3d/LAM) team on their paper being accepted to SIGGRAPH 2025! 🎉🎉🎉
-  - Added support for [LAM](https://github.com/aigc3d/LAM) in digital humans, enabling concurrent configuration when LAM is selected. TTS now supports edge_tts and BaiLian CosyVoice.
-  - Updated dependency management approach based on UV and handler modules, supporting direct execution or using Docker.
-  - CSS responsive layout updated.
-- [2025.04.14] ⭐️⭐️⭐️ Version 0.2.2 released:
-  - 100 new avatars released, visit [LiteAvatarGallery](https://modelscope.cn/models/HumanAIGC-Engineering/LiteAvatarGallery)
-  - Run [LiteAvatar](https://github.com/HumanAIGC/lite-avatar) use GPU by default
-- [2025.04.07] ⭐️⭐️⭐️ Version 0.2.1 released:
-  - Added support for history logging
-  - Support for text input
-  - Camera requirement removed at startup
-  - Optimized modular loading method
-- [2025.02.20] ⭐️⭐️⭐️ Version 0.1.0 released:
-  - Modular real-time interactive digital human
-  - Supports MiniCPM-o as a multimodal language model with cloud API options
+## 📢 最新动态
 
-### Todo List
+### 更新日志
 
-- [x] Pre-set digital human models reach 100
-- [x] Integrated [LAM](https://github.com/aigc3d/LAM): An open-source project capable of creating ultra-realistic 3D digital humans from a single image in seconds
-- [ ] Integrate [Qwen2.5-Omni](https://github.com/QwenLM/Qwen2.5-Omni)
+- [2025.08.19] ⭐️⭐️⭐️ 版本 0.5.1发布:
+  - LiteAvatar支持单机多session，详见下文LiteAvatar配置部分
+  - 增加对 Qwen-Omni多模态模型的支持，使用百炼的Qwen-Omni-Realtime API服务，配置文件参考[配置](#chat_with_qwen_omniyaml)
+- [2025.08.12] ⭐️⭐️⭐️ 版本 0.5.0发布:
+  - 修改为前后端分离版本，前端仓库添加[OpenAvatarChat-WebUI](https://github.com/HumanAIGC-Engineering/OpenAvatarChat-WebUI),方便自定义前端界面，拓展交互
+  - 增加了对 dify 的基础调用方式的支持，目前仅支持了chatflow版本
+- [2025.06.12] ⭐️⭐️⭐️ 版本 0.4.1发布:
+  - 增加对[MuseTalk](https://github.com/TMElyralab/MuseTalk)数字人的支持，支持自定义形象（底版视频自定义）
+  - 50个LiteAvatar新形象发布，丰富各种职业角色，请见[LiteAvatarGallery](https://modelscope.cn/models/HumanAIGC-Engineering/LiteAvatarGallery)
+- [2025.04.18] ⭐️⭐️⭐️ 版本 0.3.0发布:
+  - 🎉🎉🎉 热烈祝贺[LAM](https://github.com/aigc3d/LAM)论文被SIGGRAPH 2025接收！🎉🎉🎉
+  - 增加对[LAM](https://github.com/aigc3d/LAM)数字人 (能够单图秒级打造超写实3D数字人的开源项目) 的支持
+  - 增加使用百炼API的tts handler，可以大幅减少对GPU的依赖
+  - 增加对微软Edge TTS的支持
+  - 现在使用uv进行python的包管理，依赖可以按照配置中所激活的handler进行安装
+  - CSS响应式布局更新
+- [2025.04.14] ⭐️⭐️⭐️ 版本 0.2.2发布：
+  - 100个LiteAvatar新形象发布，请见[LiteAvatarGallery](https://modelscope.cn/models/HumanAIGC-Engineering/LiteAvatarGallery)
+  - 默认使用GPU后端运行数字人[lite-avatar](https://github.com/HumanAIGC/lite-avatar)
+- [2025.04.07] ⭐️⭐️⭐️ 版本 0.2.1发布： 
+  - 增加历史记录支持 
+  - 支持文本输入 
+  - 启动时不再强制要求摄像头存在 
+  - 优化模块化加载方式
+- [2025.02.20] ⭐️⭐️⭐️ 版本 0.1.0发布： 
+  - 模块化的实时交互对话数字人 
+  - 支持MiniCPM-o作为多模态语言模型和云端的 api 两种调用方
+
+### 待办清单
+
+- [ ] 完善文档以及视频教程
+- [ ] 接入Live2D数字人
+- [ ] 接入3D数字人
 
 ## Demo
 
-### Try it Online
-
-We have deployed a demo service on 
+### 在线体验
+我们部署在
 <a href="https://www.modelscope.cn/studios/HumanAIGC-Engineering/open-avatar-chat" target="_blank" style="display: inline-block; vertical-align: middle;">
     <img alt="Static Badge" style="height: 10px; margin-right: 1px;" src="./assets/images/modelscope_logo.png">
 ModelScope
-</a>
-and 
+ </a>
+和
 <a href="https://huggingface.co/spaces/HumanAIGC-Engineering-Team/open-avatar-chat" target="_blank" style="display: inline-block; vertical-align: middle;">
     🤗
 HuggingFace
-</a>. The audio part is implemented using ``SenseVoice + Qwen-VL + CosyVoice``. Now you can switch between ``LiteAvatar`` and ``LAM``. Feel free to try it out.
+ </a>
+上均部署了一个体验服务，音频部分采用``SenseVoice + Qwen-VL + CosyVoice``实现，可以对``LiteAvatar``和``LAM``两种数字人能力进行切换，欢迎体验。
 
-### Demo Video
-
+### 视频
 <table>
   <tr>
     <td align="center">
@@ -73,71 +87,116 @@ HuggingFace
   </tr>
 </table>
 
+## 社区
 
+* 微信群
 
+<img alt="community_wechat.png" height="200" src="https://github.com/HumanAIGC-Engineering/OpenAvatarChat/blob/main/assets/images/community_wechat.png" width="200"/>
 
+* 官方视频教程
 
-## 📖 Contents <!-- omit in toc -->
+我们制作了该项目的一系列介绍视频，欢迎在[Bilibili](https://www.bilibili.com/video/BV1sv8QzLEC2)上观看。
+[![点击观看项目演示视频](./assets/images/bilibili_video.jpg)](https://www.bilibili.com/video/BV1sv8QzLEC2)
 
-- [Overview](#overview)
-  - [Introduction](#introduction)
-  - [Requirements](#requirements)
-  - [Performance](#performance)
-  - [Component Dependencies](#component-dependencies)
-  - [Pre-set Modes](#pre-set-modes)
-- [Get Started](#-get-started)
-  - [Select a Config](#select-a-config)
-  - [Local Execution](#local-execution)
-    - [UV Installation](#uv-installation)
-    - [Dependency Installation](#dependency-installation)
-    - [Run](#run)
-  - [Docker Execution](#docker-execution)
-- [Handler Dependencies Installation Notes](#handler-dependencies-installation-notes)
-  - [Server Rendering RTC Client Handler](#server-rendering-rtc-client-handler)
-  - [LAM Client Rendering Handler](#lam-client-rendering-handler)
-  - [OpenAI Compatible LLM Handler](#openai-compatible-llm-handler)
-  - [MiniCPM Omni Speech2Speech Handler](#minicpm-omni-speech2speech-handler)
-  - [Bailian CosyVoice Handler](#bailian-cosyvoice-handler)
-  - [CosyVoice Local Inference Handler](#cosyvoice-local-inference-handler)
+## 🚨 常见问题
+项目过程中遇到的常见问题，可参考[链接](./docs/FAQ.md)
+
+## 📖目录 <!-- omit in toc -->
+
+- [🔥核心亮点](#核心亮点)
+- [📢 最新动态](#-最新动态)
+  - [更新日志](#更新日志)
+  - [待办清单](#待办清单)
+- [Demo](#demo)
+  - [在线体验](#在线体验)
+  - [视频](#视频)
+- [社区](#社区)
+- [🚨 常见问题](#-常见问题)
+- [概览](#概览)
+  - [简介](#简介)
+  - [系统需求](#系统需求)
+  - [性能指标](#性能指标)
+  - [组件依赖](#组件依赖)
+  - [预置模式](#预置模式)
+- [🚀安装部署](#安装部署)
+  - [选择配置](#选择配置)
+    - [chat\_with\_lam.yaml](#chat_with_lamyaml)
+    - [chat\_with\_qwen-omni.yaml](#chat_with_qwen_omniyaml)
+    - [chat\_with\_openai\_compatible.yaml](#chat_with_openai_compatibleyaml)
+    - [chat\_with\_openai\_compatible\_edge\_tts.yaml](#chat_with_openai_compatible_edge_ttsyaml)
+    - [chat\_with\_openai\_compatible\_bailian\_cosyvoice.yaml](#chat_with_openai_compatible_bailian_cosyvoiceyaml)
+    - [chat\_with\_openai\_compatible\_bailian\_cosyvoice\_musetalk.yaml](#chat_with_openai_compatible_bailian_cosyvoice_musetalkyaml)
+    - [chat\_with\_minicpm.yaml](#chat_with_minicpmyaml)
+  - [本地运行](#本地运行)
+    - [uv安装](#uv安装)
+    - [依赖安装](#依赖安装)
+      - [安装全部依赖](#安装全部依赖)
+      - [仅安装所需模式的依赖](#仅安装所需模式的依赖)
+    - [运行](#运行)
+  - [Docker运行](#docker运行)
+- [Handler依赖安装说明](#handler依赖安装说明)
+  - [服务端渲染 RTC Client Handler](#服务端渲染-rtc-client-handler)
+  - [LAM端侧渲染 Client Handler](#lam端侧渲染-client-handler)
+    - [形象选择](#形象选择)
+  - [OpenAI兼容API的语言模型Handler](#openai兼容api的语言模型handler)
+  - [Qwen-Omni多模态语言模型Handler](#Qwen-Omni多模态语言模型Handler)
+  - [MiniCPM多模态语言模型Handler](#minicpm多模态语言模型handler)
+    - [依赖模型](#依赖模型)
+  - [百炼 CosyVoice Handler](#百炼-cosyvoice-handler)
+  - [CosyVoice本地推理Handler](#cosyvoice本地推理handler)
   - [Edge TTS Handler](#edge-tts-handler)
-  - [LiteAvatar Avatar Handler](#liteavatar-avatar-handler)
-  - [LAM Avatar Driver Handler](#lam-avatar-driver-handler)
-- [Optional Deployment](#optional-deployment)
-  - [Prepare ssl certificates](#prepare-ssl-certificates)
+  - [LiteAvatar数字人Handler](#liteavatar数字人handler)
+    - [依赖模型](#依赖模型-1)
+    - [配置参数](#配置参数)
+  - [LAM数字人驱动Handler](#lam数字人驱动handler)
+    - [依赖模型](#依赖模型-2)
+  - [MuseTalk数字人Handler](#musetalk数字人handler)
+    - [依赖模型](#依赖模型-3)
+    - [配置参数](#配置参数-1)
+    - [运行](#运行-1)
+  - [Dify Chatflow Handler](#dify-chatflow-handler)
+- [相关部署需求](#相关部署需求)
+  - [准备ssl证书](#准备ssl证书)
   - [TURN Server](#turn-server)
-- [Configuration](#configuration)
+  - [配置说明](#配置说明)
+- [社区贡献-感谢](#社区贡献-感谢)
+- [Star历史](#star历史)
+- [引用](#引用)
+  
+  
 
+## 概览
 
-## Overview
+### 简介
 
-### Introduction
-
-Open Avatar Chat is a modular interactive digital human dialogue implementation that can run full functionality on a single PC. It currently supports MiniCPM-o as a multimodal language model or using cloud-based APIs to replace the conventional ASR + LLM + TTS setup. The architecture of these two modes is illustrated in the diagram below. For more pre-set modes, see [below](#pre-set-modes).
+Open Avatar Chat 是一个模块化的交互数字人对话实现，能够在单台PC上运行完整功能。目前支持MiniCPM-o作为多模态语言模型或者使用云端的 api 替换实现常规的ASR + LLM + TTS。这两种模式的结构如下图所示。更多的预置模式详见[下方](#预置模式)。
 
 <p align="center">
 <img src="./assets/images/data_flow.svg" />
 </p>
 
-### Requirements
-* Python version >=3.10, <3.12
-* CUDA-enabled GPU. The CUDA version supported by the NVIDIA driver needs to be >= 12.4.
-* The unquantized multimodal language model MiniCPM-o requires more than 20GB of VRAM.
-* The digital human component can perform inference using GPU/CPU. The test device is an i9-13980HX CPU, achieving up to 30 FPS for CPU inference.
+### 系统需求
+* Python版本 >=3.11.7, <3.12
+* 支持CUDA的GPU
+* 未量化的多模态语言模型MiniCPM-o需要20GB以上的显存。
+* 数字人部分可以使用GPU/CPU进行推理，测试设备CPU为i9-13980HX，CPU推理下可以达到30FPS.
 
 > [!TIP]
 > 
-> Using the int4 quantized version of the language model can run on graphics cards with less than 10GB of VRAM, but quantization may affect the performance.
+> 使用int4量化版本的语言模型可以在不到10GB现存的显卡上运行，但可能会因为量化而影响效果。
 > 
-> Replacing MiniCPM-o with cloud APIs to implement the typical ASR + LLM + TTS functions can greatly reduce configuration requirements. For more details, see [ASR + LLM + TTS Mode](#chat_with_openai_compatible_bailian_cosyvoiceyaml).
+> 使用云端的 api 替换MiniCPM-o实现常规的ASR + LLM + TTS，可以大大减低配置需求，具体可参考 [ASR + LLM + TTS方式](#chat_with_openai_compatible_bailian_cosyvoiceyaml)
 
-### Performance
-In our tests, using a PC equipped with an i9-13900KF processor and Nvidia RTX 4090 graphics card, we recorded the response delay. After ten tests, the average delay was about 2.2 seconds. The delay time is the interval from the end of the user's speech to the start of the digital human's speech, including RTC two-way data transmission time, VAD (Voice Activity Detection) stop delay, and the entire process computation time.
 
-### Component Dependencies
+### 性能指标
+在我们的测试中，使用配备 i9-13900KF 处理器和 Nvidia RTX 4090 显卡的 PC，我们记录了回答的延迟时间。经过十次测试，平均延迟约为 2.2 秒。延迟时间是从用户语音结束到数字人开始语音的时间间隔，其中包含了 RTC 双向数据传输时间、VAD（语音活动检测）停止延迟以及整个流程的计算时间。
 
-| Type | Open Source Project | GitHub Link | Model Link |
+### 组件依赖
+
+| 类型       | 开源项目                                |Github地址|模型地址|
 |----------|-------------------------------------|---|---|
 | RTC      | HumanAIGC-Engineering/gradio-webrtc |[<img src="https://img.shields.io/badge/github-white?logo=github&logoColor=black"/>](https://github.com/HumanAIGC-Engineering/gradio-webrtc)||
+| WebUI      | HumanAIGC-Engineering/OpenAvatarChat-WebUI |[<img src="https://img.shields.io/badge/github-white?logo=github&logoColor=black"/>](https://github.com/HumanAIGC-Engineering/OpenAvatarChat-WebUI)||
 | VAD      | snakers4/silero-vad                 |[<img src="https://img.shields.io/badge/github-white?logo=github&logoColor=black"/>](https://github.com/snakers4/silero-vad)||
 | LLM      | OpenBMB/MiniCPM-o                   |[<img src="https://img.shields.io/badge/github-white?logo=github&logoColor=black"/>](https://github.com/OpenBMB/MiniCPM-o)| [🤗](https://huggingface.co/openbmb/MiniCPM-o-2_6)&nbsp;&nbsp;[<img src="./assets/images/modelscope_logo.png" width="20px"></img>](https://modelscope.cn/models/OpenBMB/MiniCPM-o-2_6) |
 | LLM-int4 | OpenBMB/MiniCPM-o                   |[<img src="https://img.shields.io/badge/github-white?logo=github&logoColor=black"/>](https://github.com/OpenBMB/MiniCPM-o)|[🤗](https://huggingface.co/openbmb/MiniCPM-o-2_6-int4)&nbsp;&nbsp;[<img src="./assets/images/modelscope_logo.png" width="20px"></img>](https://modelscope.cn/models/OpenBMB/MiniCPM-o-2_6-int4)|
@@ -145,175 +204,278 @@ In our tests, using a PC equipped with an i9-13900KF processor and Nvidia RTX 40
 | TTS      | FunAudioLLM/CosyVoice               |[<img src="https://img.shields.io/badge/github-white?logo=github&logoColor=black"/>](https://github.com/FunAudioLLM/CosyVoice)||
 |Avatar|aigc3d/LAM_Audio2Expression|[<img src="https://img.shields.io/badge/github-white?logo=github&logoColor=black"/>](https://github.com/aigc3d/LAM_Audio2Expression)|[🤗](https://huggingface.co/3DAIGC/LAM_audio2exp)|
 ||facebook/wav2vec2-base-960h||[🤗](https://huggingface.co/facebook/wav2vec2-base-960h)&nbsp;&nbsp;[<img src="./assets/images/modelscope_logo.png" width="20px"></img>](https://modelscope.cn/models/AI-ModelScope/wav2vec2-base-960h)|
-
-### Pre-set Modes
-
-| CONFIG Name                                          | ASR        |    LLM    |    TTS    | AVATAR       |
-|------------------------------------------------------|------------|:---------:|:---------:|--------------|
-| chat_with_gs.yaml                                    | SenseVoice |    API    |   API     | LAM          |
-| chat_with_minicpm.yaml                               | MiniCPM-o  | MiniCPM-o | MiniCPM-o | lite-avatar  |
-| chat_with_openai_compatible.yaml                     | SenseVoice |    API    | CosyVoice | lite-avatar  |
-| chat_with_openai_compatible_bailian_cosyvoice.yaml   | SenseVoice |    API    |   API     | lite-avatar  |
-| chat_with_openai_compatible_edge_tts.yaml            | SenseVoice |    API    | edgetts   | lite-avatar  |
+|Avatar|TMElyralab/MuseTalk|[<img src="https://img.shields.io/badge/github-white?logo=github&logoColor=black"/>](https://github.com/TMElyralab/MuseTalk)||
+|||||
 
 
-## 🚀 Get Started
+### 预置模式
 
-Before installing and deploying the corresponding mode, please refer to the **installation methods for relevant modules** and [Optional Deployment](#optional-deployment).
+| CONFIG名称                                           | ASR |    LLM    |    TTS    | AVATAR|
+|----------------------------------------------------|-----|:---------:|:---------:|------------|
+| chat_with_lam.yaml                                 |SenseVoice|    API    |API| LAM        |
+| chat_with_qwen_omni.yaml                             |Qwen-Omni| Qwen-Omni | Qwen-Omni | lite-avatar |
+| chat_with_minicpm.yaml                             |MiniCPM-o| MiniCPM-o | MiniCPM-o | lite-avatar |
+| chat_with_openai_compatible.yaml                   |SenseVoice|API|CosyVoice| lite-avatar |
+| chat_with_openai_compatible_edge_tts.yaml          |SenseVoice|API|edgetts| lite-avatar |
+| chat_with_openai_compatible_bailian_cosyvoice.yaml |SenseVoice|API|API| lite-avatar |
+| chat_with_openai_compatible_bailian_cosyvoice_musetalk.yaml |SenseVoice|API|API| MuseTalk |
+||||||
 
-### Select a config
-The functionalities of OpenAvatarChat will follow the config specified during startup. We provided several sample config files under the config folder.
 
-#### chat_with_gs.yaml
-This config uses [LAM](https://github.com/aigc3d/LAM) generated gaussion splatting asset as client-side rendered avatar. With api based openai compatible llm and tts from Bailian platform, only vad and asr handlers are run locally, so this is the lightest config choice, which supports multiple connection on single service.
+## 🚀安装部署
 
-##### Used Handlers
-|Type|Handler|Install Notes|
+> [!IMPORTANT]
+> **【部署前置警告】不看这里，数字人 100% 罢工！**
+>
+> 在你兴冲冲地开始部署前，请务必停下脚步！
+> 否则，你将大概率遇到：**界面无法访问**、**数字人永远在加载中** 这两大“天坑”。
+>
+> **想让你的数字人动起来，必须先完成以下检查：**
+>
+> 1.  **确认模块安装**：前往查看你所选模式依赖的**相关模块安装方法**，确保一个都不少。
+>
+> 2.  **打通网络链路**：这是内外网通信的命脉，**99%的“数字人没反应”问题都出在这里**！请仔细阅读[相关部署需求](#相关部署需求)中的 **SSL 和 TURN 服务** 部分。
+>
+>     **特别是，你的网络环境决定了【必做配置】：**
+>     *   **① 仅本机访问 (`localhost`)**
+>         > 最简单，通常无需额外配置。但也只能在部署的电脑上自己访问，换个设备（比如手机）就无法访问。
+>
+>     *   **② 局域网访问 (如：用手机访问电脑)**
+>         > **SSL 证书开始变得【必要】**！多数浏览器需要 `https://` 安全连接才能授权摄像头/麦克风。没有它，你的数字人无法听和说。
+>
+>     *   **③ 公网访问 (让任何人都能用)**
+>         > **SSL 和 TURN 服务【缺一不可】**！
+>         > - **没有合法的 SSL 证书**，浏览器会直接拒绝连接，用户无法打开界面。
+>         > - **没有 TURN 服务**，处在不同网络下的用户（比如家里和公司）无法建立视频流连接，连接按钮将一直显示“**等待中**”。
+
+### 选择配置
+OpenAvatarChat按照配置文件启动并组织各个模块，可以按照选择的配置现在依赖的模型以及需要准备的ApiKey。项目在config目录下，提供以下预置的配置文件供参考：
+
+#### chat_with_lam.yaml
+使用[LAM](https://github.com/aigc3d/LAM)项目生成的gaussion splatting资产进行端侧渲染，语音使用百炼上的Cosyvoice，只有vad和asr运行在本地gpu，对机器性能依赖很轻，可以支持一机多路。
+##### 使用的Handler
+|类别|Handler|安装说明|
 |---|---|---|
-|Client|client/h5_rendering_client/cllient_handler_lam| [LAM Client Rendering Handler](#lam-client-rendering-handler)|
+|Client|client/h5_rendering_client/cllient_handler_lam| [LAM端侧渲染 Client Handler](#lam端侧渲染-client-handler)|
 |VAD|vad/silerovad/vad_handler/silero||
 |ASR|asr/sensevoice/asr_handler_sensevoice||
-|LLM|llm/openai_compatible/llm_handler/llm_handler_openai_compatible|[OpenAI Compatible LLM Handler](#openai-compatible-llm-handler)
-|TTS|tts/bailian_tts/tts_handler_cosyvoice_bailian|[Bailian CosyVoice Handler](#bailian-cosyvoice-handler)|
-|Avatar|avatar/lam/avatar_handler_lam_audio2expression|[LAM Avatar Driver Handler](#lam-avatar-driver-handler)|
+|LLM|llm/openai_compatible/llm_handler/llm_handler_openai_compatible|[OpenAI兼容API的语言模型Handler](#openai兼容api的语言模型handler)
+|TTS|tts/bailian_tts/tts_handler_cosyvoice_bailian|[百炼 CosyVoice Handler](#百炼-cosyvoice-handler)|
+|Avatar|avatar/lam/avatar_handler_lam_audio2expression|[LAM数字人驱动Handler](#lam数字人驱动handler)|
+||||
+
+#### chat_with_qwen_omni.yaml
+使用Qwen-Omni进行本地的语音到语音的对话生成，使用了阿里云百炼的线上服务Qwen-Omni-Realtime API。
+##### 使用的Handler
+|类别|Handler|安装说明|
+|---|---|---|
+|Client|client/rtc_client/client_handler_rtc|[服务端渲染 RTC Client Handler](#服务端渲染-rtc-client-handler)|
+|VAD|vad/silerovad/vad_handler/silero||
+|LLM|llm/qwen_omni/llm_handler_qwen_omni|[Qwen-Omni多模态语言模型Handler](#Qwen-Omni多模态语言模型Handler)|
+|Avatar|avatar/liteavatar/avatar_handler_liteavatar|[LiteAvatar数字人Handler](#liteavatar数字人handler)|
+||||
+
+#### chat_with_openai_compatible.yaml
+该配置使用云端语言模型API，TTS使用cosyvoice，运行在本地。
+#### 使用的Handler
+|类别|Handler|安装说明|
+|---|---|---|
+|Client|client/rtc_client/client_handler_rtc|[服务端渲染 RTC Client Handler](#服务端渲染-rtc-client-handler)|
+|VAD|vad/silerovad/vad_handler/silero||
+|ASR|asr/sensevoice/asr_handler_sensevoice||
+|LLM|llm/openai_compatible/llm_handler/llm_handler_openai_compatible|[OpenAI兼容API的语言模型Handler](#openai兼容api的语言模型handler)
+|TTS|tts/cosyvoice/tts_handler_cosyvoice|[CosyVoice本地推理Handler](#cosyvoice本地推理handler)|
+|Avatar|avatar/liteavatar/avatar_handler_liteavatar|[LiteAvatar数字人Handler](#liteavatar数字人handler)|
+||||
+
+
+
+#### chat_with_openai_compatible_edge_tts.yaml
+该配置使用edge tts，效果稍差，但不需要百炼的API Key。
+#### 使用的Handler
+|类别|Handler|安装说明|
+|---|---|---|
+|Client|client/rtc_client/client_handler_rtc|[服务端渲染 RTC Client Handler](#服务端渲染-rtc-client-handler)|
+|VAD|vad/silerovad/vad_handler/silero||
+|ASR|asr/sensevoice/asr_handler_sensevoice||
+|LLM|llm/openai_compatible/llm_handler/llm_handler_openai_compatible|[OpenAI兼容API的语言模型Handler](#openai兼容api的语言模型handler)
+|TTS|tts/edgetts/tts_handler_edgetts|[Edge TTS Handler](#edge-tts-handler)|
+|Avatar|avatar/liteavatar/avatar_handler_liteavatar|[LiteAvatar数字人Handler](#liteavatar数字人handler)|
+||||
+
+#### chat_with_openai_compatible_bailian_cosyvoice.yaml
+语言模型与TTS都使用云端API，2D数字人下对设备要求较低的配置。
+#### 使用的Handler
+|类别|Handler|安装说明|
+|---|---|---|
+|Client|client/rtc_client/client_handler_rtc|[服务端渲染 RTC Client Handler](#服务端渲染-rtc-client-handler)|
+|VAD|vad/silerovad/vad_handler/silero||
+|ASR|asr/sensevoice/asr_handler_sensevoice||
+|LLM|llm/openai_compatible/llm_handler/llm_handler_openai_compatible|[OpenAI兼容API的语言模型Handler](#openai兼容api的语言模型handler)
+|TTS|tts/bailian_tts/tts_handler_cosyvoice_bailian|[百炼 CosyVoice Handler](#百炼-cosyvoice-handler)|
+|Avatar|avatar/liteavatar/avatar_handler_liteavatar|[LiteAvatar数字人Handler](#liteavatar数字人handler)|
+||||
+
+#### chat_with_openai_compatible_bailian_cosyvoice_musetalk.yaml
+语言模型与TTS都使用云端API，2D数字人使用MuseTalk进行推理，默认是用GPU进行推理，暂不支持CPU推理。
+##### 使用的Handler
+|类别|Handler|安装说明|
+|---|---|---|
+|Client|client/rtc_client/client_handler_rtc|[服务端渲染 RTC Client Handler](#服务端渲染-rtc-client-handler)|
+|VAD|vad/silerovad/vad_handler/silero||
+|ASR|asr/sensevoice/asr_handler_sensevoice||
+|LLM|llm/openai_compatible/llm_handler/llm_handler_openai_compatible|[OpenAI兼容API的语言模型Handler](#openai兼容api的语言模型handler)
+|TTS|tts/bailian_tts/tts_handler_cosyvoice_bailian|[百炼 CosyVoice Handler](#百炼-cosyvoice-handler)|
+|Avatar|avatar/musetalk/avatar_handler_musetalk|[MuseTalk数字人Handler](#musetalk数字人handler)|
 ||||
 
 #### chat_with_minicpm.yaml
-Use MiniCPM-o-2.6 as audio2audio chat model, it need enough VRAM and GPU computaion power.
-
-##### Used Handlers
-|Type|Handler|Install Notes|
+使用minicpm进行本地的语音到语音的对话生成，对GPU的性能与显存大小有一定要求。
+##### 使用的Handler
+|类别|Handler|安装说明|
 |---|---|---|
-|Client|client/rtc_client/client_handler_rtc|[Server Rendering RTC Client Handler](#server-rendering-rtc-client-handler)|
+|Client|client/rtc_client/client_handler_rtc|[服务端渲染 RTC Client Handler](#服务端渲染-rtc-client-handler)|
 |VAD|vad/silerovad/vad_handler/silero||
-|LLM|llm/minicpm/llm_handler_minicpm|[MiniCPM Omni Speech2Speech Handler](#minicpm-omni-speech2speech-handler)|
-|Avatar|avatar/liteavatar/avatar_handler_liteavatar|[LiteAvatar Avatar Handler](#liteavatar-avatar-handler)|
+|LLM|llm/minicpm/llm_handler_minicpm|[MiniCPM多模态语言模型Handler](#minicpm多模态语言模型handler)|
+|Avatar|avatar/liteavatar/avatar_handler_liteavatar|[LiteAvatar数字人Handler](#liteavatar数字人handler)|
 |||| 
 
-#### chat_with_openai_compatible.yaml
-This config use openai-compatible api as llm provider and CosyVoice as local tts model.
+### 本地运行
 
-##### Used Handlers
-|Type|Handler|Install Notes|
-|---|---|---|
-|Client|client/rtc_client/client_handler_rtc|[Server Rendering RTC Client Handler](#server-rendering-rtc-client-handler)|
-|VAD|vad/silerovad/vad_handler/silero||
-|ASR|asr/sensevoice/asr_handler_sensevoice||
-|LLM|llm/openai_compatible/llm_handler/llm_handler_openai_compatible|[OpenAI Compatible LLM Handler](#openai-compatible-llm-handler)
-|TTS|tts/cosyvoice/tts_handler_cosyvoice|[CosyVoice Local Inference Handler](#cosyvoice-local-inference-handler)|
-|Avatar|avatar/liteavatar/avatar_handler_liteavatar|[LiteAvatar Avatar Handler](#liteavatar-avatar-handler)|
-
-#### chat_with_openai_compatible_bailian_cosyvoice.yaml
-Both LLM and TTS are provided by API, it is the lightest config for LiteAvatar.
-
-##### Used Handlers
-|Type|Handler|Install Notes|
-|---|---|---|
-|Client|client/rtc_client/client_handler_rtc|[Server Rendering RTC Client Handler](#server-rendering-rtc-client-handler)|
-|VAD|vad/silerovad/vad_handler/silero||
-|ASR|asr/sensevoice/asr_handler_sensevoice||
-|LLM|llm/openai_compatible/llm_handler/llm_handler_openai_compatible|[OpenAI Compatible LLM Handler](#openai-compatible-llm-handler)
-|TTS|tts/bailian_tts/tts_handler_cosyvoice_bailian|[Bailian CosyVoice Handler](#bailian-cosyvoice-handler)|
-|Avatar|avatar/liteavatar/avatar_handler_liteavatar|[LiteAvatar Avatar Handler](#liteavatar-avatar-handler)|
-||||
-
-#### chat_with_openai_compatible_edge_tts.yaml
-This config use Edge TTS, it does not need an API Key of Bailian.
-|Type|Handler|Install Notes|
-|---|---|---|
-|Client|client/rtc_client/client_handler_rtc|[Server Rendering RTC Client Handler](#server-rendering-rtc-client-handler)|
-|VAD|vad/silerovad/vad_handler/silero||
-|ASR|asr/sensevoice/asr_handler_sensevoice||
-|LLM|llm/openai_compatible/llm_handler/llm_handler_openai_compatible|[OpenAI Compatible LLM Handler](#openai-compatible-llm-handler)
-|TTS|tts/edgetts/tts_handler_edgetts|[Edge TTS Handler](#edge-tts-handler)|
-|Avatar|avatar/liteavatar/avatar_handler_liteavatar|[LiteAvatar Avatar Handler](#liteavatar-avatar-handler)|
-||||
-
-### Local Execution
 
 > [!IMPORTANT]
-> Submodules and dependent models in this project require the git LFS module. Please ensure that the LFS functionality is installed:
+> 本项目子模块以及依赖模型都需要使用git lfs模块，请确认lfs功能已安装
 > ```bash
 > sudo apt install git-lfs
 > git lfs install 
 > ```
-> This project references third-party libraries via git submodules, so you need to update submodules before running:
+> 本项目通过git子模块方式引用三方库，运行前需要更新子模块
 > ```bash
-> git submodule update --init --recursive
+> git submodule update --init --recursive --depth 1
 > ```
+> 强烈建议：国内用户依然使用git clone的方式下载，而不要直接下载zip文件，方便这里的git submodule和git lfs的操作，github访问的问题，可以参考[github访问问题](https://github.com/maxiaof/github-hosts)
 > 
-> If you encounter any issues, feel free to submit an [issue](https://github.com/HumanAIGC-Engineering/OpenAvatarChat/issues) to us.
-> 
-> This project depends on CUDA, please make sure that the CUDA version supported by the local NVIDIA driver is >= 12.4
+> 如果遇到问题欢迎提 [issue](https://github.com/HumanAIGC-Engineering/OpenAvatarChat/issues) 给我们
+>
+> 本项目的运行依赖CUDA，请确保本机NVIDIA驱动程序支持的CUDA版本>=12.4
 
-#### UV Installation
-It is recommended to install [UV](https://docs.astral.sh/uv/), using UV for local environment management.
-> Official standalone installer
+#### uv安装
+
+推荐安装[uv](https://docs.astral.sh/uv/)，使用uv进行进行本地环境管理。
+
+> 官方独立安装程序
 > ```bash
 > # On Windows.
 > powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 > # On macOS and Linux.
 > curl -LsSf https://astral.sh/uv/install.sh | sh
 > ```
-> PyPI installation
+> PyPI安装
 > ```
 > # With pip.
 > pip install uv
 > # Or pipx.
 > pipx install uv
 > ```
-#### Dependency Installation
-##### Install all dependencies
+
+#### 依赖安装
+
+##### 安装全部依赖
 ```bash
 uv sync --all-packages
 ```
-##### Install dependencies for the required mode only
+
+##### 仅安装所需模式的依赖
 ```bash
-uv run install.py --uv --config <absolute path to config file>.yaml
+uv venv --python 3.11.11
+
+uv pip install setuptools pip
+
+uv run install.py --uv --config <配置文件的绝对路径>.yaml
+
+./scripts/post_config_install.sh --config <配置文件的绝对路径>.yaml
 ```
 
-#### Run
+> [!Note]
+> `post_config_install.sh` 脚本会将虚拟环境中的NVIDIA CUDA库路径添加到 `ld.so.conf.d` 并更新 `ldconfig` 缓存，以确保系统能正确加载这些动态链接库
+
+
+#### 运行
 ```bash
-uv run src/demo.py --config <absolute path to config file>.yaml
+uv run src/demo.py --config <配置文件的绝对路径>.yaml
 ```
 
-### Docker Execution
-Containerized execution: The container relies on NVIDIA's container environment. After preparing a Docker environment that supports GPUs, execute the following command to complete the construction and deployment of the image:
+
+### Docker运行
+容器化运行：容器依赖nvidia的容器环境，在准备好支持GPU的docker环境后，运行以下命令即可完成镜像的构建与启动：
+> [!Note]
+> 原有的运行方式：
 ```bash
-./build_and_run.sh --config <absolute path to config file>.yaml
+./build_and_run.sh --config <配置文件的相对路径>.yaml
+```
+> [!Note]
+针对50系列显卡，我们已将项目`pyproject.toml`中的CUDA版本升级至12.8，并完成了对MuseTalk的适配。通过Docker环境（Ubuntu 24.04，驱动版本：575.64.03）测试验证，Lam、LiteAvatar、MuseTalk均能正常运行。
+如需自行构建镜像，可使用`build_cuda128.sh`脚本（基于`Dockerfile.cuda128`）进行构建，运行则使用`run_docker_cuda128.sh`脚本。与旧版本不同，`Dockerfile.cuda128`将项目所需的所有依赖环境统一打包到镜像中，无需再通过配置文件动态加载，便于测试所有数字人模型。
+
+```bash
+# 克隆项目并进入目录
+git clone https://github.com/HumanAIGC-Engineering/OpenAvatarChat.git && cd OpenAvatarChat
+
+# 下载所有子模块
+git submodule update --init --recursive --depth 1
+
+# 下载LiteAvatar所需模型
+# 脚本默认通过ModelScope下载模型（若本地未安装ModelScope，需先执行pip install modelscope进行安装）
+bash scripts/download_liteavatar_weights.sh
+
+# 下载LAM所需模型
+git clone --depth 1 https://www.modelscope.cn/AI-ModelScope/wav2vec2-base-960h.git ./models/wav2vec2-base-960h
+wget https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/aigc3d/data/LAM/LAM_audio2exp_streaming.tar -P ./models/LAM_audio2exp/
+tar -xzvf ./models/LAM_audio2exp/LAM_audio2exp_streaming.tar -C ./models/LAM_audio2exp && rm ./models/LAM_audio2exp/LAM_audio2exp_streaming.tar
+
+# 下载MuseTalk所需模型
+bash scripts/download_musetalk_weights.sh
+
+# 构建镜像
+bash build_cuda128.sh
+
+# 如需使用百炼API，可在项目根目录创建.env文件
+touch .env  # 并手动添加个人API密钥：DASHSCOPE_API_KEY=sk-xxxxx
+
+# 运行镜像（可根据需求替换配置文件，以下为示例命令）
+bash run_docker_cuda128.sh --config config/chat_with_openai_compatible_bailian_cosyvoice_musetalk.yaml
 ```
 
-## Handler Dependencies Installation Notes
-### Server Rendering RTC Client Handler
-Currently there is no extra dependency or essential configs.
 
-### LAM Client Rendering Handler
-Client rendering handler is derived from [Server Rendering RTC Client Handler](#server-rendering-rtc-client-handler). It supports multi-connection. Client avatar asset can be selected in handler config.
-#### Select the Avatar Asset
-LAM avatar asset can be generated by the [LAM project](https://github.com/aigc3d/LAM) (The ready-to-use generation pipeline is not ready yet. Stay tunned!). OpenAvatarChat provides 4 sample asset. They can be found under 
-src/handlers/client/h5_rendering_client/lam_samples. The selected asset should be set to the asset_path field in the handler config. You can use one of the sample asset, a your own asset that created by LAM, please refer to the follow handler config sample:
+## Handler依赖安装说明
+### 服务端渲染 RTC Client Handler
+暂无特别依赖和需要配置的内容。
+
+### LAM端侧渲染 Client Handler
+端侧渲染基于[服务端渲染 RTC Client Handler](#服务端渲染-rtc-client-handler)扩展，支持多路链接，可以通过配置文件选择形象。
+#### 形象选择
+形象可以通过[LAM](https://github.com/aigc3d/LAM)项目进行训练（LAM对话数字人资产生产流程待完善，敬请期待），本项目中预置了4个范例形象，位于src/handlers/client/h5_rendering_client/lam_samples下。用户可以通过在配置文件中用asset_path字段进行选择，也可以选择自行训练的资产文件。参考配置如下：
 ```yaml
 LamClient:
   module: client/h5_rendering_client/client_handler_lam
   asset_path: "lam_samples/barbara.zip"
   concurrent_limit: 5
 ```
-
-### OpenAI Compatible LLM Handler
-Local llm handler has relatively high startup requirements. If you already have an available LLM api_key, you can start it this way to experience interactive digital humans.
-Modify the corresponding config, such as the LLM_Bailian configuration in config/chat_with_openai_compatible.yaml. The invocation method in the code uses the standard OpenAI approach, which should theoretically be compatible with similar setups.
+### OpenAI兼容API的语言模型Handler
+本地推理的语言模型要求相对较高，如果你已有一个可调用的 LLM api_key,可以用这种方式启动来体验对话数字人。
+可以通过配置文件选择所使用模型、系统prompt、API和API Key。参考配置如下，其中apikey可以被环境变量覆盖。
 ```yaml
-LLM_Bailian: 
-  model_name: "qwen-plus"
-  system_prompt: "You are an AI digital human. Respond to my questions briefly and insert punctuation where appropriate."
+LLMOpenAICompatible: 
+  moedl_name: "qwen-plus"
+  system_prompt: "你是个AI对话数字人，你要用简短的对话来回答我的问题，并在合理的地方插入标点符号"
   api_url: 'https://dashscope.aliyuncs.com/compatible-mode/v1'
   api_key: 'yourapikey' # default=os.getenv("DASHSCOPE_API_KEY")
 ```
->[!TIP]
->OpenAvatarChat will acquire the .env file in current working directory, it is can be used to set the environment variables without change the config file.
+> [!TIP]
+> 系统默认会获取项目当前目录下的.env文件用来获取环境变量。
 
 > [!Note]
-> * Internal Code Calling Method
+> * 代码内部调用方式
 > ```python
 > client = OpenAI(
 >       api_key= self.api_key, 
@@ -328,12 +490,18 @@ LLM_Bailian:
 >     stream=True
 >     )
 > ```
-> * The default LLM API is Bailian api_url.
+> * LLM默认为百炼api_url + api_key
 
-### MiniCPM Omni Speech2Speech Handler
-#### Models used
-In this project, MiniCPM-o-2.6 can be used as a multimodal language model to provide dialogue capabilities for digital humans. Users can download the relevant model as needed from [Huggingface](https://huggingface.co/openbmb/MiniCPM-o-2_6) or [Modelscope](https://modelscope.cn/models/OpenBMB/MiniCPM-o-2_6). It is recommended to directly download the model to <ProjectRoot>/models/. The default configuration points to this path, so if the model is placed elsewhere, you need to modify the configuration file. There is a corresponding model download script in the scripts directory, which can be used in a Linux environment. Please run the script in the project root directory:
+### Qwen-Omni多模态语言模型Handler
+使用百炼的api来接入qwen-omni的能力，当前仅支持manual模式，vad由本地的SileroVad模执行，并且由于manual模式下asr的结果非常差且不可靠返回，因此额外增加了SenseVoice模块仅用于回显对话记录。
+完整配置文件可以参考chat_with_qwen_omni.yaml，其中avatar模块可以AvatarMusetalk，LiteAvatar二选一。
 
+### MiniCPM多模态语言模型Handler
+> [!IMPORTANT]
+> **注意：MiniCPM由于考虑到尺寸关系，没有直接作为子模块包含到项目中，如果有需要，请参照src/handlers/llm/minicpm/notes.md中的说明获取相关代码**
+#### 依赖模型
+* MiniCPM-o-2.6
+本项目可以使用MiniCPM-o-2.6作为多模态语言模型为数字人提供对话能力，用户可以按需从[Huggingface](https://huggingface.co/openbmb/MiniCPM-o-2_6)或者[Modelscope](https://modelscope.cn/models/OpenBMB/MiniCPM-o-2_6)下载相关模型。建议将模型直接下载到 \<ProjectRoot\>/models/ 默认配置的模型路径指向这里，如果放置与其他位置，需要修改配置文件。scripts目录中有对应模型的下载脚本，可供在linux环境下使用，请在项目根目录下运行脚本：
 ```bash
 scripts/download_MiniCPM-o_2.6.sh
 ```
@@ -342,11 +510,11 @@ scripts/download_MiniCPM-o_2.6-int4.sh
 ```
 
 > [!NOTE]
-> Both full precision version and the int4 quantized one are supported. However，the int4 version need a special version of AutoGPTQ to load, refer to the [model card](https://huggingface.co/openbmb/MiniCPM-o-2_6-int4) please.
+> 本项目支持MiniCPM-o-2.6的原始模型以及int4量化版本，但量化版本需要安装专用分支的AutoGPTQ，相关细节请参考官方的[说明](https://modelscope.cn/models/OpenBMB/MiniCPM-o-2_6-int4)
 
-### Bailian CosyVoice Handler
-Bailian provides CosyVoice API, it can be used as an alternative to local tts inference handler. Though it requires an Bailian API Key, it reduces quite amount of system requirments.
-Sample handler config looks like this:
+### 百炼 CosyVoice Handler
+可以使用百炼提供CosyVoice API调用TTS能力，比本地推理对系统性能要求低，但需要在百炼上开通对应的能力。
+参考配置如下：
 ```
 CosyVoice:
   module: tts/bailian_tts/tts_handler_cosyvoice_bailian
@@ -354,54 +522,66 @@ CosyVoice:
   model_name: "cosyvoice-v1"
   api_key: 'yourapikey' # default=os.getenv("DASHSCOPE_API_KEY")
 ```
-Same as [OpenAI Compatible LLM Handler](#openai-compatible-llm-handler), api_key can be set in the handler config or from environment variables.
->[!TIP]
->OpenAvatarChat will acquire the .env file in current working directory, it is can be used to set the environment variables without change the config file.
+同[OpenAI兼容API的语言模型Handler]一样，可以将api_key设置在配置中或通过环境变量来覆盖。
+> [!TIP]
+> 系统默认会获取项目当前目录下的.env文件用来获取环境变量。
 
-### CosyVoice Local Inference Handler
+### CosyVoice本地推理Handler
+
 > [!WARNING]
-> Due to an issue where the pynini package dependency fails to compile with unsupported parameters when fetched via PyPI on Windows, the current recommended workaround by CosyVoice is to install the precompiled pynini package from conda-forge on Windows using Conda.
+> 因为CosyVoice依赖中的pynini包通过PyPI获取时在Windows下编译会出现编译参数不支持的问题。CosyVoice官方目前建议的解决方法是在Windows下用Conda安装
+conda-forge中的pynini预编译包。
 
-When using CosyVoice locally as TTS on Windows, it is necessary to combine Conda and UV for installation. The specific dependency installation and execution process are as follows:
+在Windows下如果使用本地的CosyVoice作为TTS的话，需要结合Conda和UV进行安装。具体依赖安装和运行流程如下：
 
-1. Install Anaconda or [Miniconda](https://docs.anaconda.net.cn/miniconda/install/)
+1. 安装Anaconda或者[Miniconda](https://docs.anaconda.net.cn/miniconda/install/)
 ```bash
 conda create -n openavatarchat python=3.10
 conda activate openavatarchat
 conda install -c conda-forge pynini==2.1.6
 ```
 
-2. Set the environment variable indexed by UV to the Conda environment
+2. 设置uv要索引的环境变量为Conda环境
 ```bash
 # cmd
 set VIRTUAL_ENV=%CONDA_PREFIX%
 # powershell 
 $env:VIRTUAL_ENV=$env:CONDA_PREFIX
 ```
-3. When installing dependencies and running with UV, add the `--active` parameter to prioritize the use of the activated virtual environment
+
+3. 在uv安装依赖和运行时，参数中添加--active，优先使用已激活的虚拟环境
 ```bash
-# Install dependencies
+# 安装依赖
 uv sync --active --all-packages
-# Install required dependencies only
+# 仅安装所需依赖
 uv run --active install.py --uv --config config/chat_with_openai_compatible.yaml
-# Run CosyVoice 
+# 运行cosyvoice 
 uv run --active src/demo.py --config config/chat_with_openai_compatible.yaml
 ```
 > [!Note]
-> - TTS defaults to CosyVoice's `iic/CosyVoice-300M-SFT` + `Chinese Female` You can modify it to other models and use `ref_audio_path` and `ref_audio_text` for voice cloning.
+> TTS默认为CosyVoice的 `iic/CosyVoice-300M-SFT` + `中文女`，可以通过修改为`其他模型`配合 `ref_audio_path` 和 `ref_audio_text` 进行音色复刻
 
 ### Edge TTS Handler
-OpenAvatarChat integrated Microsoft Edge TTS, it is inference on the cloud and api key is not esstential, the sample handler config looks like:
+集成微软的edge-tts，使用云端推理，无需申请api key，参考配置如下：
 ```yaml
 Edge_TTS:
   module: tts/edgetts/tts_handler_edgetts
   voice: "zh-CN-XiaoxiaoNeural"
 ```
 
-### LiteAvatar Avatar Handler
-LiteAvatar is integarted to provide 2D avatar feature. Currenty, 100 avatar assets are provided on modelscope project [LiteAvatarGallery](https://modelscope.cn/models/HumanAIGC-Engineering/LiteAvatarGallery), please refer to this project for detail.
-LiteAvatar can be run on CPU as well as GPU. If other GPU heavy handlers are used, let liteavatar run on cpu may be a good choice.
-Sample handler config looks like:
+### LiteAvatar数字人Handler
+集成LiteAvatar算法生产2D数字人对话，目前在modelscope的项目LiteAvatarGallery中提供了100个数字人形象可供使用，详情见[LiteAvatarGallery](https://modelscope.cn/models/HumanAIGC-Engineering/LiteAvatarGallery)。
+
+#### 依赖模型
+**使用LiveAvatar之前需要先下载模型参数**, LiteAvatar源码中包含模型下载脚本，为了方便使用，在本项目的`scripts`目录中提供了用于Linux环境的模型下载脚本. 可以在**当前项目的根目录中**调用该脚本:
+```bash
+bash scripts/download_liteavatar_weights.sh
+```
+
+#### 配置参数
+
+LiteAvatar可以运行在CPU或GPU上，如果其他handler都没有对GPU的大开销，建议使用GPU进行推理。
+参考配置如下：
 ```yaml
 LiteAvatar:
   module: avatar/liteavatar/avatar_handler_liteavatar
@@ -410,156 +590,257 @@ LiteAvatar:
   use_gpu: true
 ```
 
-### LAM Avatar Driver Handler
-#### Models used
+#### 多session支持
+LiteAvatar支持单机多session，如果要开启，请参考`config/chat_with_openai_compatible_bailian_cosyvoice.yaml`，设置`default.chan_engine.concurrent_limit`即可，通过该参数，在启动时事先声明当前支持的最大并发路数。
+
+需要注意的是，多session对机器的性能要求成倍增加，当LiteAvatar在GPU上运行时，每一路并发大约占用3G显存，如果`concurrent_limit`设置过大，**可能导致显存溢出**，请根据运行机器的配置自行调整并发数量。
+
+### LAM数字人驱动Handler
+#### 依赖模型
 * facebook/wav2vec2-base-960h [🤗](https://huggingface.co/facebook/wav2vec2-base-960h) [<img src="./assets/images/modelscope_logo.png" width="20px"></img>](https://modelscope.cn/models/AI-ModelScope/wav2vec2-base-960h)
-  * Download from huggingface, ensure lfs is installed properly，run following cmd under root of the project:
+  * 从huggingface下载, 确保lfs已安装，使当前路径位于项目根目录，执行：
   ```
   git clone --depth 1 https://huggingface.co/facebook/wav2vec2-base-960h ./models/wav2vec2-base-960h
   ```
-  * Download from modelscope, ensure lfs is installed properly，run following cmd under root of the project:
+  * 从modelscope下载, 确保lfs已安装，使当前路径位于项目根目录，执行：
   ```
   git clone --depth 1 https://www.modelscope.cn/AI-ModelScope/wav2vec2-base-960h.git ./models/wav2vec2-base-960h
   ```
 * LAM_audio2exp [🤗](https://huggingface.co/3DAIGC/LAM_audio2exp)
-  * Download form huggingface, ensure lfs is installed properly，run following cmds under root of the project:
+  * 从huggingface下载, 确保lfs已安装，使当前路径位于项目根目录，执行：
   ```
   wget https://huggingface.co/3DAIGC/LAM_audio2exp/resolve/main/LAM_audio2exp_streaming.tar -P ./models/LAM_audio2exp/
   tar -xzvf ./models/LAM_audio2exp/LAM_audio2exp_streaming.tar -C ./models/LAM_audio2exp && rm ./models/LAM_audio2exp/LAM_audio2exp_streaming.tar
   ```
-  * If huggingface is reachable, it can also be downloaded from oss, run following cmds under root of the project:
+  * 国内用户可以从oss地址下载, 使当前路径位于项目根目录，执行：
   ```
   wget https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/aigc3d/data/LAM/LAM_audio2exp_streaming.tar -P ./models/LAM_audio2exp/
   tar -xzvf ./models/LAM_audio2exp/LAM_audio2exp_streaming.tar -C ./models/LAM_audio2exp && rm ./models/LAM_audio2exp/LAM_audio2exp_streaming.tar
   ```
 
-## Optional Deployment
+### MuseTalk数字人Handler
+项目目前集成了最新的MuseTalk 1.5，之前的版本未做测试，当前版本支持自定义形象，可以通过修改avatar_video_path进行选择。
 
-### Prepare ssl certificates
-Since we use rtc to stream the video and audio, if not linked from localhost an ssl certificates is needed, user can put exist ones into the ssl_certs folder and config them in the config file or create a new self signed one with the provided script. Run the script under project root to put the result into proper position.
+#### 依赖模型
+* MuseTalk源码中包含模型下载脚本，但是为了保持目录结构一致，对下载脚本做了修改，修改后的脚本在scripts目录下，可在linux环境下使用。MuseTalk原始代码中使用了相对路径进行加载，虽然进行了适配和修改，但是部分代码无法以输入参数进行设置，所以不要修改模型的下载位置，并在项目根目录下运行脚本：
+```
+bash scripts/download_musetalk_weights.sh
+```
+
+#### 配置参数
+* 形象选择：MuseTalk源码中包括两个默认的形象，可以通过修改avatar_video_path参数来选择，系统第一次加载会做数据准备，第二次进入时会直接加载，也可以通过修改force_create_avatar参数来强制每次加载重新生成，avatar_model_dir参数可以指定保存avatar数据的目录，默认在models/musetalk/avatar_model，如无特殊需求无需修改。
+* 帧率：虽然按照MuseTalk的文档中的说明可以在V100下做到30fps，但是本项目参考realtime_inference.py中进行适配还未能达到预期，建议fps设为20，实际测试也可以根据GPU性能进行调整。如果测试log中发现warning：“[IDLE_FRAME] Inserted idle during speaking”，说明实际推理时帧率低于设定的fps。
+* batch_size：可通过增加batch_size来提高推理的效率，但是batch_size过大会影响系统的首帧响应速度。 batch_size最小为2，如果设置1，log中会出现Error：`[IDLE_FRAME]1 validation error for AvatarMuseTalkConfig，batch_size - Input should be greater than or equal to 2 [type=greater_than_equal, input_value=1, input_type=int]` 
+
+```yaml
+Avatar_MuseTalk:
+  module: avatar/musetalk/avatar_handler_musetalk
+  fps: 20  # Video frame rate
+  batch_size: 2  # Batch processing frame count, must be greater than 2
+  avatar_video_path: "src/handlers/avatar/musetalk/MuseTalk/data/video/sun.mp4"  # Initialization video path
+  avatar_model_dir: "models/musetalk/avatar_model"  # Default avatar model directory
+  force_create_avatar: false  # Whether to force regenerate digital human data
+  debug: false  # Whether to enable debug mode
+  ... # 其他参数可参考 AvatarMuseTalkConfig 源码
+```
+
+#### 数字人模型下载工具
+通过设置avatar_video_path可以自定义数字人的底版视频，为了方便没有数字人素材的用户进行尝试，我们提供了一个小工具来让Musetalk的用户可以使用Liteavatar中提供的数字人素材。 脚本文件为`scripts/download_avatar_model.py`，模型的列表需要在[LiteAvatarGallery](https://modelscope.cn/models/HumanAIGC-Engineering/LiteAvatarGallery)查看 。
+
+**使用方法：**
+
+```bash
+# 1. 查看帮助信息
+python scripts/download_avatar_model.py --help
+
+# 2. 下载指定的数字人模型
+python scripts/download_avatar_model.py -m "20250612/P1rcvIW8H6kvcYWNkEnBWPfg"
+
+# 3. 查看已下载的模型列表
+python scripts/download_avatar_model.py -d
+
+# 输出示例：
+# 已下载模型列表:
+# avatar_name（for LiteAvatar config）    avatar_video_path（for Musetalk config）
+# --------------------------------------------------------------------------------
+# 20250612/P1rcvIW8H6kvcYWNkEnBWPfg       resource/avatar/liteavatar/20250612/P1rcvIW8H6kvcYWNkEnBWPfg/bg_video_silence.mp4
+
+```
+
+
+#### 运行
+
+* Docker
+
+```
+bash build_cuda128.sh
+
+bash run_docker_cuda128.sh --config config/chat_with_openai_compatible_bailian_cosyvoice_musetalk.yaml
+```
+
+* 本地运行
+
+本地安装依赖的命令顺序如下：
+```bash
+uv venv --python 3.11.11
+
+./scripts/pre_config_install.sh --config config/chat_with_openai_compatible_bailian_cosyvoice_musetalk.yaml
+
+uv run install.py --uv --config config/chat_with_openai_compatible_bailian_cosyvoice_musetalk.yaml
+
+./scripts/post_config_install.sh --config config/chat_with_openai_compatible_bailian_cosyvoice_musetalk.yaml
+```
+
+需要注意的是，uv默认安装的mmcv在实际运行时可能会报错“No module named ‘mmcv._ext’”参考[MMCV-FAQ](https://mmcv.readthedocs.io/en/latest/faq.html)，解决方法是：
+```bash
+uv pip uninstall mmcv
+uv run mim install mmcv==2.2.0 --force
+```
+
+MuseTalk源码中第一次启动默认会下载一个模型s3fd-619a316812.pth，该模型目前已集成在下载脚本中。在Docker启动时已经做了映射处理。但在本地运行时，需要再手动进行一次映射。
+
+```
+# linux
+ln -s $(pwd)/models/musetalk/s3fd-619a316812/* ~/.cache/torch/hub/checkpoints/
+```
+
+
+启动程序可以使用：
+```bash
+uv run src/demo.py --config config/chat_with_openai_compatible_bailian_cosyvoice_musetalk.yaml
+```
+
+
+### Dify Chatflow Handler 
+项目目前集成了Dify的Chatflow，用户可以在Dify中创建一个Chatflow，将生成的Chatflow应用的 api_url 以及 api_key 填入后，即可使用Dify的Chatflow进行对话。
+```yaml
+ Dify:
+      enabled: True
+      module: llm/dify/llm_handler_dify
+      enable_video_input: False # 是否允许摄像头输入，确保应用支持视觉，并接受 files 输入
+      api_key: '' #your dify api key
+      api_url: 'http://localhost/v1' # your dify api url
+ 
+```
+
+## 相关部署需求
+### 准备ssl证书
+由于本项目使用rtc作为视音频传输的通道，用户如果需要从localhost以外的地方连接服务的话，需要准备ssl证书以开启https，默认配置会读取ssl_certs目录下的localhost.crt和localhost.key，用户可以相应修改配置来使用自己的证书。我们也在scripts目录下提供了生成自签名证书的脚本。需要在项目根目录下运行脚本以使生成的证书被放到默认位置。
 ```bash
 scripts/create_ssl_certs.sh
 ```
 
 ### TURN Server
-If you encounter a continuous waiting state after clicking "Start Conversation", it may be due to NAT traversal issues in your deployment environment (such as deployment on cloud machines). In this case, data relay is required. On Linux systems, you can use coturn to set up a TURN server. Follow these steps to install, start, and configure coturn on the same machine:
-
-* Run the installation script
+如果点击开始对话后，出现一直等待中的情况，可能你的部署环境存在NAT穿透方面的问题（如部署在云上机器等），需要进行数据中继。在Linux环境下，可以使用coturn来架设TURN服务。可参考以下操作在同一机器上安装、启动并配置使用coturn：
+* 运行安装脚本
 ```console
 $ chmod 777 scripts/setup_coturn.sh
 # scripts/setup_coturn.sh
 ```
-* Modify the config file, add the following configuration and start the service
+* 修改config配置文件，添加以下配置后启动服务。
 ```yaml
 default:
   chat_engine:
     handler_configs:
-      RtcClient: # If using Lam, this config should be LamClient
+      RtcClient: #若使用Lam，则此项配置为LamClient
         turn_config:
           turn_provider: "turn_server"
           urls: ["turn:your-turn-server.com:3478", "turns:your-turn-server.com:5349"]
           username: "your-username"
           credential: "your-credential"
 ```
-* Ensure that the firewall (including cloud machine security group policies) opens the ports required by coturn
+* 确保防火墙（包括云上机器安全组等策略）开放coturn所需端口
 
-
-
-## Configuration
-The default parameter will load config from **<project_root>/configs/chat_with_minicpm.yaml**. Config can be loaded from other file by add the --config parameter.
+### 配置说明
+程序默认启动时，会读取 **<project_root>/configs/chat_with_minicpm.yaml** 中的配置，用户也可以在启动命令后加上--config参数来选择从其他配置文件启动。
 ```bash
-uv run src/demo.py --config <absolute-path-to-the-config>.yaml
+uv run src/demo.py --config <配置文件的绝对路径>.yaml
 ```
-Configurable parameters are listed here：
 
-|Parameter|Default|Description|
+可配置的参数列表：
+
+|参数|默认值|说明|
 |---|---|---|
-|log.log_level|INFO|Log level of the demo.|
-|service.host|0.0.0.0|Address to start gradio application on.|
-|service.port|8282|Port to start gradio application on.|
-|service.cert_file|ssl_certs/localhost.crt|Certificate file for ssl, if both cert_file and cert_key are found, https will be enabled.|
-|service.cert_key|ssl_certs/localhost.key|Certificate file for ssl, if both cert_file and cert_key are found, https will be enabled.|
-|chat_engine.model_root|models|Path to find models.|
-|chat_engine.handler_configs|N/A|Handler configs are provided by each handler.|
+|log.log_level|INFO|程序的日志级别。|
+|service.host|0.0.0.0|Gradio服务的监听地址。|
+|service.port|8282|Gradio服务的监听端口。|
+|service.cert_file|ssl_certs/localhost.crt|SSL证书中的证书文件，如果cert_file和cert_key指向的文件都能正确读取，服务将会使用https。|
+|service.cert_key|ssl_certs/localhost.key|SSL证书中的证书文件，如果cert_file和cert_key指向的文件都能正确读取，服务将会使用https。|
+|chat_engine.model_root|models|模型的根目录。|
+|chat_engine.handler_configs|N/A|由各Handler提供的可配置项。|
 
-Current implemented handler provide following configs:
+目前已实现的Handler提供如下的可配置参数：
 * VAD
 
-|Parameter|Default|Description|
+|参数|默认值|说明|
 |---|---|---|
-|SileraVad.speaking_threshold|0.5|Threshold to determine whether user starts speaking or end speaking.|
-|SileraVad.start_delay|2048|Speaking probability should be higher than threshold longer than this period to be recognized as start of speaking, unit in audio sample.|
-|SileraVad.end_delay|2048|Speaking probability should be lower than threshold longer than this period to be recognized as end of speaking, unit in audio sample.|
-|SileraVad.buffer_look_back|1024|For high threshold, the very start part to the voice may be clipped, use this to compensate, unit in audio sample.|
-|SileraVad.speech_padding|512|Silence of this length will be padded on both start and end, unit in audio sample.|
+|SileraVad.speaking_threshold|0.5|判定输入音频为语音的阈值。|
+|SileraVad.start_delay|2048|当模型输出概率持续大于阈值超过这个时间后，将起始超过阈值的时刻认定为说话的开始。以音频采样数为单位。|
+|SileraVad.end_delay|2048|当模型输出的概率持续小于阈值超过这个时间后，判定说话内容结束。以音频采样数为单位。|
+|SileraVad.buffer_look_back|1024|当使用较高阈值时，语音的起始部分往往有所残缺，该配置在语音的起始点往前回溯一小段时间，避免丢失语音，以音频采样数为单位。|
+|SileraVad.speech_padding|512|返回的音频会在起始与结束两端加上这个长度的静音音频，已采样数为单位。|
 
-* LLM
+* 语言模型
 
-|Parameter|Default| Description                                                                                                                                                                                                                                                                                                 |
-|---|---|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|S2S_MiniCPM.model_name|MiniCPM-o-2_6| Which model to load, can be "MiniCPM-o-2_6" or "MiniCPM-o-2_6-int4", it should match the folder's name under model directory.                                                                                                                                                                               |
-|S2S_MiniCPM.voice_prompt|| Voice prompt for MiniCPM-o.                                                                                                                                                                                                                                                                                 |
-|S2S_MiniCPM.assistant_prompt|| Assistant prompt for MiniCPM-o.                                                                                                                                                                                                                                                                             |
-| S2S_MiniCPM.enable_video_input | False         | Whether video input is enabled.**when video input is enbaled vram consumption will be increased largely, on 24GB gpu with non-quantized model, oom may occur during inference.**                                                                                                                            |
-| S2S_MiniCPM.skip_video_frame   | -1            | Decide how many frames will be used when video modality is used. -1 means only the latest frame in every 1 second interval will be used. 0 means all frames will be used. n>0 means n frames will be skipped after each accepted frame.|
+| 参数                             | 默认值           | 说明                                                                                 |
+|--------------------------------|---------------|------------------------------------------------------------------------------------|
+| S2S_MiniCPM.model_name         | MiniCPM-o-2_6 | 该参数用于选择使用的语言模型，可选"MiniCPM-o-2_6" 或者 "MiniCPM-o-2_6-int4"，需要确保model目录下实际模型的目录名与此一致。 |
+| S2S_MiniCPM.voice_prompt       |               | MiniCPM-o的voice prompt                                                             |
+| S2S_MiniCPM.assistant_prompt   |               | MiniCPM-o的assistant prompt                                                         |
+| S2S_MiniCPM.enable_video_input | False         | 设置是否开启视频输入，**开启视频输入时，显存占用会明显增加，非量化模型再24G显存下可能会oom**                                |
+| S2S_MiniCPM.skip_video_frame   | -1            | 控制开启视频输入时，输入视频帧的频率。-1表示仅每秒输入最后的一帧，0表示输入所有帧，大于0的值表示每一帧后会有这个数量的图像帧被跳过。               |
 
+* ASR funasr模型
 
-*ASR FunASR Model*
+|参数|默认值|说明|
+|---|---|---|
+|ASR_Funasr.model_name|iic/SenseVoiceSmall|该参数用于选择funasr 下的[模型](https://github.com/modelscope/FunASR)，会自动下载模型，若需使用本地模型需改为绝对路径|
 
-| Parameter              | Default Value          | Description                                                                 |
-|------------------------|------------------------|-----------------------------------------------------------------------------|
-| ASR_Funasr.model_name  | iic/SenseVoiceSmall    | This parameter selects a model from [FunASR](https://github.com/modelscope/FunASR). Models are downloaded automatically. To use a local model, provide an absolute path. |
+* LLM纯文本模型
 
----
+|参数|默认值|说明|
+|---|---|---|
+|LLMOpenAICompatible.model_name|qwen-plus|测试环境使用的百炼api,免费额度可以从[百炼](https://bailian.console.aliyun.com/#/home)获取|
+|LLMOpenAICompatible.system_prompt||默认系统prompt|
+|LLMOpenAICompatible.api_url||模型api_url|
+|LLMOpenAICompatible.api_key||模型api_key|
 
-*LLM Plain Text Model*
+* TTS CosyVoice模型
 
-| Parameter                  | Default Value | Description                                                                 |
-|----------------------------|---------------|-----------------------------------------------------------------------------|
-| LLM_Bailian.model_name     | qwen-plus     | The API for Bailian's testing environment. Free quotas can be obtained from [Bailian](https://bailian.console.aliyun.com/#/home). |
-| LLM_Bailian.system_prompt  |               | Default system prompt                                                       |
-| LLM_Bailian.api_url        |               | API URL for the model                                                      |
-| LLM_Bailian.api_key        |               | API key for the model                                                      |
+|参数|默认值|说明|
+|---|---|---|
+|TTS_CosyVoice.api_url||自己利用其他机器部署cosyvocie server时需填|
+|TTS_CosyVoice.model_name||可参考[CosyVoice](https://github.com/FunAudioLLM/CosyVoice)|
+|TTS_CosyVoice.spk_id|中文女|使用官方sft 比如'中文女'|'中文男'，和ref_audio_path互斥|
+|TTS_CosyVoice.ref_audio_path||参考音频的绝对路径，和spk_id 互斥，记得更换可参考音色的模型|
+|TTS_CosyVoice.ref_audio_text||参考音频的文本内容|
+|TTS_CosyVoice.sample_rate|24000|输出音频采样率|
 
----
+* LiteAvatar数字人
 
-*TTS CosyVoice Model*
-
-| Parameter                      | Default Value | Description                                                                 |
-|--------------------------------|---------------|-----------------------------------------------------------------------------|
-| TTS_CosyVoice.api_url          |               | Required if deploying CosyVoice server on another machine.                 |
-| TTS_CosyVoice.model_name       |               | Refer to [CosyVoice](https://github.com/FunAudioLLM/CosyVoice) for details. |
-| TTS_CosyVoice.spk_id           | '中文女' | Use official SFT voices like '英文女' or '英文男'. Mutually exclusive with `ref_audio_path`. |
-| TTS_CosyVoice.ref_audio_path  |               | Absolute path to the reference audio. Mutually exclusive with `spk_id`.    |
-| TTS_CosyVoice.ref_audio_text  |               | Text content of the reference audio.                                       |
-| TTS_CosyVoice.sample_rate      | 24000         | Output audio sample rate                                                   |
-
----
-
-*LiteAvatar Digital Human*
-
-| Parameter                     | Default Value | Description                                                                 |
-|-------------------------------|---------------|-----------------------------------------------------------------------------|
-| LiteAvatar.avatar_name          | 20250408/sample_data   | Name of the digital human data. 100 avatars provided on ModelScope. Refer to [LiteAvatarGallery](https://modelscope.cn/models/HumanAIGC-Engineering/LiteAvatarGallery) for more details. |
-| LiteAvatar.fps                  | 25            | Frame rate for the digital human. On high-performance CPUs, it can be set to 30 FPS. |
-| LiteAvatar.enable_fast_mode     | False          | Low-latency mode. Enabling this reduces response delay but may cause stuttering at the beginning of responses on underpowered systems. |
-| LiteAvatar.use_gpu | True | Whether to use GPU acceleration. CUDA backend for now.|
-
+|参数|默认值|说明|
+|---|---|---|
+|LiteAvatar.avatar_name|sample_data|数字人数据名，目前在modelscope的项目LiteAvatarGallery中提供了100个数字人形象可供使用，详情见[LiteAvatarGallery](https://modelscope.cn/models/HumanAIGC-Engineering/LiteAvatarGallery)。|
+|LiteAvatar.fps|25|数字人的运行帧率，在性能较好的CPU上，可以设置为30FPS|
+|LiteAvatar.enable_fast_mode|False|低延迟模式，打开后可以减低回答的延迟，但在性能不足的情况下，可能会在回答的开始产生语音卡顿。|
+|LiteAvatar.use_gpu|True|LiteAvatar算法是否使用GPU，目前使用CUDA后端|
 
 > [!IMPORTANT]
-> All path parameters in the configuration can use either absolute paths or paths relative to the project root directory.
+> 所有配置中的路径参数都可以使用绝对路径，或者相对于项目根目录的相对路径。
 
-## Community Thanks
+## 社区贡献-感谢
 
-- Thanks to community member "titan909" for posting the [deployment tutorial video](https://www.bilibili.com/video/BV1FNZ8YNEA8) on Bilibili.
-- Thanks to another community member, “十字鱼”, for sharing a video on Bilibili featuring a one-click installation package, along with the download link. (The extraction code is included in the video description—take a close look!) [One-click package](https://www.bilibili.com/video/BV1V1oLYmEu3/?vd_source=29463f5b63a3510553325ba70f325293)
+- 感谢社区热心同学“十字鱼”在B站上发布的一键安装包视频，并提供了下载（解压码在视频简介里面有,仔细找找）[一键包](https://www.bilibili.com/video/BV1V1oLYmEu3/?vd_source=29463f5b63a3510553325ba70f325293)
+- 感谢社区热心同学“W&H”提供的夸克一键包[windows版本:提取码a79V](https://pan.quark.cn/s/237177126010) 和 [linux 版本:提取码：E8Kq](https://pan.quark.cn/s/b7fcdc157586)
+- 感谢社区热心同学“W&H”提供的源码zip[夸克网盘:提取码 9iNy](https://pan.quark.cn/s/9e6156cafacd) 和 [百度云盘:提取码：xrxr](https://pan.baidu.com/s/16-0OBtSD5cBz2gJDJORW7w)
 
-## Star History
+
+## Star历史
 ![](https://api.star-history.com/svg?repos=HumanAIGC-Engineering/OpenAvatarChat&type=Date)
 
-## Citation
+## 引用
 
-If you found OpenAvatarChat helpful in your research/project, we would appreciate a Star⭐ and citation✏️
+如果您在您的研究/项目中感到 OpenAvatarChat 为您提供了帮助，期待您能给一个 Star⭐和引用✏️
 
 ```
 @software{avatarchat2025,

@@ -16,3 +16,9 @@
 [submodule "src/handlers/avatar/lam/LAM_Audio2Expression"]
 	path = src/handlers/avatar/lam/LAM_Audio2Expression
 	url = https://github.com/aigc3d/LAM_Audio2Expression.git
+[submodule "src/handlers/avatar/musetalk/MuseTalk"]
+	path = src/handlers/avatar/musetalk/MuseTalk
+	url = https://github.com/TMElyralab/MuseTalk.git
+[submodule "src/handlers/client/rtc_client/frontend"]
+	path = src/handlers/client/rtc_client/frontend
+	url = https://github.com/HumanAIGC-Engineering/OpenAvatarChat-WebUI.git

@@ -78,7 +78,7 @@ class HandlerTTS(HandlerBase, ABC):
         self.task_queue_map = {}
         if torch.cuda.is_available():
             self.device = torch.device("cuda:0")
-        elif torch.mps.is_available():
+        elif torch.backends.mps.is_available():
             self.device = torch.device("mps")
         else:
             self.device = torch.device("cpu")
@@ -251,7 +251,7 @@ class HandlerTTS(HandlerBase, ABC):
                 context.task_queue.append(task)
             context.input_text = ''
             end_task = HandlerTask(speech_id=speech_id, speech_end=True)
-            end_task.result_queue.put(np.zeros(shape=(1, self.sample_rate), dtype=np.float32))
+            end_task.result_queue.put(np.zeros(shape=(1, 240), dtype=np.float32))
             end_task.result_queue.put(None)
             logger.info(f"speech end {end_task}")
             context.task_queue.append(end_task)
